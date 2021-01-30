@@ -8,7 +8,8 @@ public class UserOrderDto {
 
     private String email;
 
-
+//    確認用メールアドレス
+//    private String emailConfirm;
 
     private String oldPrefectureId;
 

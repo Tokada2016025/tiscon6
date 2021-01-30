@@ -15,9 +15,9 @@
 <div class="container">
   <form th:action="@{/result}" th:object="${userOrderForm}" class="form-horizontal" method="post">
     <h1>お見積り情報確認</h1>
-    <ul th:if="${#fields.hasErrors('all')}">
-      <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
-    </ul>
+<!--    <ul th:if="${#fields.hasErrors('all')}">-->
+<!--      <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>-->
+<!--    </ul>-->
     <div class="col-sm-12">
       <h4>個人情報</h4>
       <table class="table table-bordered">
@@ -30,8 +30,9 @@
           <input type="hidden" name="customerName" id="customerName" th:value="*{customerName}"/>
         </tr>
         <tr>
-          <th>連絡先TEL</th>
-          <td><span th:text="*{tel}"></span></td>
+<!--          エラー内容の追記-->
+          <th>連絡先TEL<font color="red"><span  th:if="${#fields.hasErrors('tel')}" th:text="${#fields.errors('tel')}"></span></font></th>
+          <td><span th:text="*{tel}" ></span></td>
           <input type="hidden" name="tel" id="tel" th:value="*{tel}"/>
         </tr>
         <tr>
