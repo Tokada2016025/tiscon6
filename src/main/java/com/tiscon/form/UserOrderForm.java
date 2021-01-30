@@ -55,6 +55,9 @@ public class UserOrderForm {
     @NotNull
     private boolean washingMachineInstallation;
 
+    @NotNull
+    private String monthId;
+
     public String getCustomerName() {
         return customerName;
     }
@@ -149,5 +152,14 @@ public class UserOrderForm {
 
     public void setWashingMachineInstallation(boolean washingMachineInstallation) {
         this.washingMachineInstallation = washingMachineInstallation;
+    }
+
+    public String getmonthId(){
+        return  monthId;
+    }
+
+    public void setmonthId(String monthId){
+        this.monthId = monthId;
+
     }
 }
