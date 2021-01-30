@@ -16,9 +16,21 @@ body {
     min-height: 300px;
 }
 
+.btn-back{
+    background:#FBC0AF;
+    border-color:#FBC0AF;
+}
+
 .btn-primary {
-    background: #FBC0AF;
-    border-color: #FBC0AF;
+    background: #FA5D32;
+    border-style:none;
+    font-size: 1.5em;
+    padding: 10px 60px;
+}
+
+.btn-primary:hover{
+    background-color:white;
+    color:#FA3600;
 }
 
 .btn-top {
@@ -195,4 +207,8 @@ ul.label {
 
 td {
     width: 400px;
+}
+
+.orderNum{
+    text-align:right;
 }

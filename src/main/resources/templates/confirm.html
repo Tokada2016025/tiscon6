@@ -18,6 +18,9 @@
     <ul th:if="${#fields.hasErrors('all')}">
       <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
     </ul>
+    <div class="orderNum">
+      <img src="img/order2.png" alt="順番2" width="50%" height="50%">
+    </div>
     <div class="col-sm-12">
       <h4>個人情報</h4>
       <table class="table table-bordered">
@@ -99,7 +102,7 @@
       </table>
       <div class="form-group">
         <div class="text-center">
-          <button type="submit" name="backToInput" class="btn btn-primary">修正</button>
+          <button type="submit" name="backToInput" class="btn btn-back">修正</button></br></br>
           <button type="submit" name="calculation" class="btn btn-primary">概算見積もりをする</button>
         </div>
       </div>
