@@ -8,6 +8,8 @@ public class UserOrderDto {
 
     private String email;
 
+
+
     private String oldPrefectureId;
 
     private String oldAddress;

@@ -33,6 +33,12 @@
           <label for="email">連絡先メールアドレス</label>
           <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
         </div>
+<!--        メールアドレス確認用-->
+        <div class="form-group">
+          <label for="email">連絡先メールアドレス(確認用)</label>
+          <input type="text" id="emailConfirm" name="emailConfirm"  class="form-control" value="test@test.com"/>
+        </div>
+<!--        -->
         <div class="form-group">
           <label for="oldPrefectureId">転居元住所（都道府県）</label>
           <select id="oldPrefectureId" name="oldPrefectureId" class="form-control">
@@ -63,15 +69,15 @@
           <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
         </div>
         <div class="form-group">
-          <label for="bed">ベッドの個数</label>
+          <label for="bed">ベッドの個数(*段ボール20個分で計算します)</label>
           <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
         </div>
         <div class="form-group">
-          <label for="bicycle">自転車の個数</label>
+          <label for="bicycle">自転車の個数(*段ボール15個分で計算します)</label>
           <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
         </div>
         <div class="form-group">
-          <label for="washingMachine">洗濯機の個数</label>
+          <label for="washingMachine">洗濯機の個数(*段ボール10個分で計算します)</label>
           <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
                  value="1"/>
         </div>
@@ -95,6 +101,32 @@
 <script src="../js/jquery-3.5.1.min.js" th:src="@{/js/jquery-3.5.1.min.js}"></script>
 <script src="../js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
 <script src="../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+
+<!--メールが一致しているかの確認-->
+<script>
+  function CheckEmail() {
+    //IE対応の為変更
+    var mail = email.value; //メールフォームの値を取得
+    var mailConfirm = emailConfirm.value; //メール確認用フォームの値を取得
+    var mail = document.getElementById("email_1").value; //メールフォームの値を取得
+    var mailConfirm = document.getElementById("emailConfirm_1").value; //メール確認用フォームの値を取得
+    // パスワードの一致確認
+    if (mail != mailConfirm){
+      alert("パスワードと確認用パスワードが一致しません"); // 一致していなかったら、エラーメッセージを表示する
+      return false;
+    }else{
+      return true;
+    }
+  };
+</script>
+
 </body>
 
 </html>
+
+<!--フッター(連絡先)-->
+<footer class="text-center bg-dark text-white">
+  <p class="py-3">連絡先</p>
+  電話： 〇〇〇〇-〇〇〇〇-〇〇〇〇 <br>
+  メール: 〇〇〇〇-〇〇〇〇@〇〇〇〇
+</footer>
