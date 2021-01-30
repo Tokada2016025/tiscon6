@@ -27,14 +27,14 @@ public class UserOrderForm {
     @NotBlank
     private String oldPrefectureId;
 
-    @NotBlank
-    private String oldAddress;
+    /*@NotBlank
+    private String oldAddress;*/
 
     @NotBlank
     private String newPrefectureId;
 
-    @NotBlank
-    private String newAddress;
+    /*@NotBlank
+    private String newAddress;*/
 
     @Numeric
     @NotBlank
@@ -87,13 +87,13 @@ public class UserOrderForm {
         this.oldPrefectureId = oldPrefectureId;
     }
 
-    public String getOldAddress() {
+    /*public String getOldAddress() {
         return oldAddress;
-    }
+    }*/
 
-    public void setOldAddress(String oldAddress) {
+    /*public void setOldAddress(String oldAddress) {
         this.oldAddress = oldAddress;
-    }
+    }*/
 
     public String getNewPrefectureId() {
         return newPrefectureId;
@@ -103,13 +103,13 @@ public class UserOrderForm {
         this.newPrefectureId = newPrefectureId;
     }
 
-    public String getNewAddress() {
+    /*public String getNewAddress() {
         return newAddress;
-    }
+    }*/
 
-    public void setNewAddress(String newAddress) {
+    /*public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
-    }
+    }*/
 
     public String getBox() {
         return box;

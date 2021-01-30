@@ -10,11 +10,11 @@ public class UserOrderDto {
 
     private String oldPrefectureId;
 
-    private String oldAddress;
+    /*private String oldAddress;*/
 
     private String newPrefectureId;
 
-    private String newAddress;
+    /*private String newAddress;*/
 
     private String box;
 
@@ -58,13 +58,13 @@ public class UserOrderDto {
         this.oldPrefectureId = oldPrefectureId;
     }
 
-    public String getOldAddress() {
+    /*public String getOldAddress() {
         return oldAddress;
-    }
+    }*/
 
-    public void setOldAddress(String oldAddress) {
+    /*public void setOldAddress(String oldAddress) {
         this.oldAddress = oldAddress;
-    }
+    }*/
 
     public String getNewPrefectureId() {
         return newPrefectureId;
@@ -74,13 +74,13 @@ public class UserOrderDto {
         this.newPrefectureId = newPrefectureId;
     }
 
-    public String getNewAddress() {
+    /*public String getNewAddress() {
         return newAddress;
-    }
+    }*/
 
-    public void setNewAddress(String newAddress) {
+    /*public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
-    }
+    }*/
 
     public int getBox() {
         return Integer.parseInt(box);

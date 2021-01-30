@@ -16,9 +16,9 @@ public class Customer implements Serializable {
 
     private String email;
 
-    private String oldAddress;
+    /*private String oldAddress;
 
-    private String newAddress;
+    private String newAddress;*/
 
     public int getCustomerId() {
         return customerId;
@@ -68,7 +68,7 @@ public class Customer implements Serializable {
         this.email = email;
     }
 
-    public String getOldAddress() {
+    /*public String getOldAddress() {
         return oldAddress;
     }
 
@@ -82,5 +82,5 @@ public class Customer implements Serializable {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
-    }
+    }*/
 }
