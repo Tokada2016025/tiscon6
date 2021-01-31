@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.math.BigDecimal;
 /**
  * 引越し見積もり機能において業務処理を担当するクラス。
  *
@@ -72,10 +73,10 @@ public class EstimateService {
     public Integer getPrice(UserOrderDto dto) {
         double distance = estimateDAO.getDistance(dto.getOldPrefectureId(), dto.getNewPrefectureId());
         // 小数点以下を切り捨てる
-        int distanceInt = (int) Math.floor(distance);
+        //int distanceInt = (int) Math.floor(distance);
 
         // 距離当たりの料金を算出する
-        int priceForDistance = distanceInt * PRICE_PER_DISTANCE;
+        BigDecimal priceForDistance = new BigDecimal(distance * PRICE_PER_DISTANCE);
 
         int boxes = getBoxForPackage(dto.getBox(), PackageType.BOX)
                 + getBoxForPackage(dto.getBed(), PackageType.BED)
@@ -104,8 +105,15 @@ public class EstimateService {
         //その値をintにする
         int month_values = Integer.parseInt(monthId);
 
+        BigDecimal price = priceForDistance.add(new BigDecimal(pricePerTruck)).multiply(new BigDecimal(month_value[judge[month_values-1]])).add(new BigDecimal(priceForOptionalService));
+                //Math.round((priceForDistance + pricePerTruck)*month_value[judge[month_values-1]]);
+
+
+
         //(距離[km]*100[円/km]+トラック輸送量[円])*季節係数+オプション料
-        return (int)((priceForDistance + pricePerTruck)*month_value[judge[month_values-1]]) + priceForOptionalService;
+        //return (int)(((priceForDistance + pricePerTruck)*month_value[judge[month_values-1]]) + priceForOptionalService);
+        return price.intValue();
+
     }
 
     /**

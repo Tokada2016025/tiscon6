@@ -91,18 +91,22 @@
         <legend>荷物情報</legend>
         <div class="form-group">
           <label for="box">段ボールの個数</label>
+          <font color="red">*</font><br>
           <input type="text" id="box" name="box" placeholder="0以上の半角数字を入力してください　例:40" th:field="*{box}" class="form-control" value="10" onBlur="{CheckBox()}"/>
         </div>
         <div class="form-group">
           <label for="bed">ベッドの個数(*段ボール20個分で計算します)</label>
+          <font color="red">*</font><br>
           <input type="text" id="bed" name="bed"  placeholder="0以上の半角数字を入力してください　例:0" th:field="*{bed}" class="form-control" value="3" onBlur="{CheckBed()}"/>
         </div>
         <div class="form-group">
           <label for="bicycle">自転車の個数(*段ボール15個分で計算します)</label>
+          <font color="red">*</font><br>
           <input type="text" id="bicycle" name="bicycle" placeholder="0以上の半角数字を入力してください　例:3" th:field="*{bicycle}" class="form-control" value="1" onBlur="{CheckBicycle()}"/>
         </div>
         <div class="form-group">
           <label for="washingMachine">洗濯機の個数(*段ボール10個分で計算します)</label>
+          <font color="red">*</font><br>
           <input type="text" id="washingMachine" name="washingMachine" placeholder="0以上の半角数字を入力してください　例:1" th:field="*{washingMachine}" class="form-control"
                  value="1" onBlur="{CheckWash()}"/>
         </div>
