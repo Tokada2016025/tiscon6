@@ -24,6 +24,13 @@ public class UserOrderForm {
     @NotBlank
     private String email;
 
+
+/*確認用メールアドレスのフィールド
+    @Email
+    @NotBlank
+    private String emailConfirm;*/
+
+
     @NotBlank
     private String oldPrefectureId;
 
@@ -78,6 +85,16 @@ public class UserOrderForm {
     public void setEmail(String email) {
         this.email = email;
     }
+
+/*確認用メールアドレスの取得
+    public String getEmailConfirm() {
+        return emailConfirm;
+    }
+
+    public void setEmaConfirm(String emailConfirm) {
+        this.emailConfirm = emailConfirm;
+    }*/
+
 
     public String getOldPrefectureId() {
         return oldPrefectureId;
