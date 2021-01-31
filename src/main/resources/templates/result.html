@@ -10,13 +10,16 @@
   <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css">
 </head>
 
+
 <body>
 <nav th:insert="header.html :: header"></nav>
 <div class="container">
   <form th:action="@{/order}" th:object="${userOrderForm}" class="form-horizontal" method="post">
     <h1>概算お見積り結果</h1>
     <div class="col-sm-12">
-      <h2>概算お見積り結果は<span th:text="${price}"></span>円です。</h2>
+      <h2 style="text-align:center">概算お見積り結果は<br>
+        <span th:text="${price}" class="marker_line"></span>円<br>
+        です。</h2> <!-- 見積結果をみやすくするためにマーカーをつける　-->
       <h4>個人情報</h4>
       <table class="table table-bordered">
         <col span="1" style="background-color: #A9B7C7;">
@@ -116,3 +119,10 @@
 </body>
 
 </html>
+
+<!--フッター(連絡先)-->
+<footer class="text-center bg-dark text-white">
+  <p class="py-3">連絡先</p>
+  電話： 〇〇〇〇-〇〇〇〇-〇〇〇〇 <br>
+  メール: 〇〇〇〇-〇〇〇〇@〇〇〇〇
+</footer>
