@@ -159,6 +159,12 @@ public class EstimateController {
         BeanUtils.copyProperties(userOrderForm, dto);
         estimateService.registerOrder(dto);
 
+        Integer price = estimateService.getPrice(dto);
+
+        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+        model.addAttribute("userOrderForm", userOrderForm);
+        model.addAttribute("price", price);
+
         return "complete";
     }
 

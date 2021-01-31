@@ -25,26 +25,26 @@
       <fieldset>
         <legend>個人情報
           <font size="3" color="red">  *</font>
-          <font size="3">は必須項目です</font></br>
+          <font size="3">は必須項目です</font><br>
         </legend>
         <div class="form-group">
           <label for="customerName">氏名</label>
-          <font color="red">*</font></br>
+          <font color="red">*</font><br>
           <input type="text" id="customerName" name="customerName" placeholder="例：山田太郎" th:field="*{customerName}" class="form-control" value="山田太郎"/>
         </div>
         <div class="form-group">
           <label for="tel">連絡先TEL</label>
-          <font color="red">*</font></br>
+          <font color="red">*</font><br>
           <input type="tel" id="tel" name="tel" placeholder="例：08012345678(半角数字)" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
         </div>
         <div class="form-group">
           <label for="email">連絡先メールアドレス</label>
-          <font color="red">*</font></br>
+          <font color="red">*</font><br>
           <input type="text" id="email" name="email" placeholder="例：abcdefgh@xx.xx.jp(半角英数字)" th:field="*{email}" class="form-control" value="test@test.com"/>
         </div>
         <div class="form-group">
           <label for="oldPrefectureId">転居元住所（都道府県）</label>
-          <font color="red">*</font></br>
+          <font color="red">*</font><br>
           <select id="oldPrefectureId" name="oldPrefectureId" class="form-control">
             <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{oldPrefectureId}">[[${prefecture.prefectureName}]]</option>
           </select>
@@ -56,7 +56,7 @@
         </div>
         <div class="form-group">
           <label for="newPrefectureId">転居先住所（都道府県）</label>
-          <font color="red">*</font></br>
+          <font color="red">*</font><br>
           <select id="newPrefectureId" name="newPrefectureId" class="form-control">
             <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{newPrefectureId}">[[${prefecture.prefectureName}]]</option>
           </select>
@@ -71,19 +71,19 @@
         <legend>荷物情報</legend>
         <div class="form-group">
           <label for="box">段ボールの個数</label>
-          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
+          <input type="text" id="box" name="box" placeholder="0以上の半角数字を入力してください　例:40" th:field="*{box}" class="form-control" value="10"/>
         </div>
         <div class="form-group">
           <label for="bed">ベッドの個数</label>
-          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <input type="text" id="bed" name="bed" placeholder="0以上の半角数字を入力してください　例:0" th:field="*{bed}" class="form-control" value="3"/>
         </div>
         <div class="form-group">
           <label for="bicycle">自転車の個数</label>
-          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
+          <input type="text" id="bicycle" name="bicycle" placeholder="0以上の半角数字を入力してください　例:3" th:field="*{bicycle}" class="form-control" value="1"/>
         </div>
         <div class="form-group">
           <label for="washingMachine">洗濯機の個数</label>
-          <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
+          <input type="text" id="washingMachine" name="washingMachine" placeholder="0以上の半角数字を入力してください　例:1" th:field="*{washingMachine}" class="form-control"
                  value="1"/>
         </div>
         <div class="form-group">
@@ -96,7 +96,7 @@
       </fieldset>
       <div class="form-group">
         <div class="text-center">
-          <button type="submit" name="confirm" class="btn btn-primary">確認</button></br></br>
+          <button type="submit" name="confirm" class="btn btn-primary">確認</button><br><br>
           <button type="submit" name="backToTop" class="btn btn-back">TOPへ戻る</button>
         </div>
       </div>
