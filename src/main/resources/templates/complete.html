@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Top画面</title>
+  <title>詳細見積依頼</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Exo:900}"
@@ -12,14 +12,121 @@
 <body>
 
 <nav th:insert="header.html :: header"></nav>
+<div class="orderNum">
+    <img src="img/order4.png" alt="順番4" width="50%" height="50%">
+</div>
   <div class="ui main container">
     <div class="text-center">
-      <h2>申し込みが完了しました。</h2>
-      <p>お電話にて正確な見積もり結果をお伝えいたします。</p>
+      <h2><font size="7">申し込みが完了しました。</font></h2>
+      <p><font size="5">3営業日以内に01-2345-6789より、お電話にて正確な見積もり結果をお伝えいたします。</font></p>
     </div>
   </div>
+
+<br>
+<br>
+
+<div class="container">
+  <form th:action="@{/order}" th:object="${userOrderForm}" class="form-horizontal" method="post">
+    <h1><font size="6">お見積内容</font></h1>
+    <div class="col-sm-12">
+      <h2><font size="5">概算お見積り結果は<span th:text="${price}"></span>円です。</font></h2><br>
+      <font size="2">
+      <h4>個人情報</h4>
+      <table class="table table-bordered">
+        <col span="1" style="background-color: #A9B7C7;">
+        <col span="2" style="background-color: #FFFFFF;">
+        <tbody>
+        <tr>
+          <th style="width: 40%">氏名</th>
+          <td><span th:text="*{customerName}"></span></td>
+          <input type="hidden" name="customerName" id="customerName" th:value="*{customerName}"/>
+        </tr>
+        <tr>
+          <th>連絡先TEL</th>
+          <td><span th:text="*{tel}"></span></td>
+          <input type="hidden" name="tel" id="tel" th:value="*{tel}"/>
+        </tr>
+        <tr>
+          <th>連絡先メールアドレス</th>
+          <td><span th:text="*{email}"></span></td>
+          <input type="hidden" name="email" id="email" th:value="*{email}"/>
+        </tr>
+        <tr>
+          <th>転居元住所（都道府県）</th>
+          <td>
+            <span th:each="prefecture : ${prefectures}" th:text="${prefecture.prefectureName}" th:if="${prefecture.prefectureId}==*{oldPrefectureId}">東京</span>
+          </td>
+          <input type="hidden" name="oldPrefectureId" id="oldPrefectureId" th:value="*{oldPrefectureId}"/>
+        </tr>
+        <tr>
+          <th>転居先住所（都道府県）</th>
+          <td>
+            <span th:each="prefecture : ${prefectures}" th:text="${prefecture.prefectureName}" th:if="${prefecture.prefectureId}==*{newPrefectureId}">東京</span>
+          </td>
+          <input type="hidden" name="newPrefectureId" id="newPrefectureId" th:value="*{newPrefectureId}"/>
+        </tr>
+        <tr>
+          <th>引っ越し月</th>
+          <!---
+          <td><span th:text="*{tel}"></span></td>
+          <input type="hidden" name="tel" id="tel" th:value="*{tel}"/>
+          -->
+        </tr>
+        </tbody>
+      </table>
+      <h4>荷物情報</h4>
+      <table class="table table-bordered">
+        <col span="1" style="background-color: #A9B7C7;">
+        <col span="2" style="background-color: #FFFFFF;">
+        <tbody>
+        <tr>
+          <th style="width: 40%">段ボールの個数</th>
+          <td><span th:text="*{box}"></span></td>
+          <input type="hidden" name="box" id="box" th:value="*{box}"/>
+        </tr>
+        <tr>
+          <th>ベッドの個数</th>
+          <td><span th:text="*{bed}"></span></td>
+          <input type="hidden" name="bed" id="bed" th:value="*{bed}"/>
+        </tr>
+        <tr>
+          <th>自転車の個数</th>
+          <td><span th:text="*{bicycle}"></span></td>
+          <input type="hidden" name="bicycle" id="bicycle" th:value="*{bicycle}"/>
+        </tr>
+        <tr>
+          <th>洗濯機の個数</th>
+          <td><span th:text="*{washingMachine}"></span></td>
+          <input type="hidden" name="washingMachine" id="washingMachine" th:value="*{washingMachine}"/>
+        </tr>
+        <tr>
+          <th>洗濯機の設置工事申し込み</th>
+          <td><span th:text="*{washingMachineInstallation} ? 'あり' : 'なし'"></span></td>
+          <input type="hidden" name="washingMachineInstallation" id="washingMachineInstallation" th:value="*{washingMachineInstallation}"/>
+        </tr>
+        </tbody>
+      </table>
+      </font>>
+      <div class="form-group">
+        <div class="text-center">
+          <button type="submit" name="complete" class="btn btn-primary">詳細見積もり依頼</button><br><br>
+          <button type="submit" name="backToConfirm" class="btn btn-back">戻る</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
 <script src="../js/jquery-3.5.1.min.js" th:src="@{/js/jquery-3.5.1.min.js}"></script>
 <script src="../js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
 <script src="../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 </body>
 </html>
+
+
+<!--フッター(連絡先)-->
+<footer class="text-center bg-dark text-white">
+  <p class="py-3">連絡先</p>
+  電話： 〇〇〇〇-〇〇〇〇-〇〇〇〇 <br>
+  メール: 〇〇〇〇-〇〇〇〇@〇〇〇〇
+</footer>

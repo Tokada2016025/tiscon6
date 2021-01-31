@@ -16,9 +16,21 @@ body {
     min-height: 300px;
 }
 
+.btn-back{
+    background:#FBC0AF;
+    border-color:#FBC0AF;
+}
+
 .btn-primary {
-    background: #FBC0AF;
-    border-color: #FBC0AF;
+    background: #FA5D32;
+    border-style:none;
+    font-size: 1.5em;
+    padding: 10px 60px;
+}
+
+.btn-primary:hover{
+    background-color:white;
+    color:#FA3600;
 }
 
 .btn-top {
@@ -193,6 +205,14 @@ ul.label {
     border: 1px solid rgba(34,36,38,.15);
 }
 
+/*マーカークラスの生成*/
+.marker_line { background:linear-gradient(transparent 0%, #fec1fe 0%); }
+
 td {
     width: 400px;
 }
+
+.orderNum{
+    text-align:right;
+}
+

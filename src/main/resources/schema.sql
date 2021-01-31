@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS CUSTOMER
     CUSTOMER_NAME                   VARCHAR(60) NOT NULL,
     TEL                             VARCHAR(11) NOT NULL,
     EMAIL                           VARCHAR(256) NOT NULL,
+    MONTH_DATA                      VARCHAR(60) NOT NULL,
     PRIMARY KEY (CUSTOMER_ID)
 );
 
