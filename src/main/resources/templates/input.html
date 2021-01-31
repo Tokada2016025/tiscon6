@@ -61,21 +61,11 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="oldAddress">転居元住所（市区町村以下）</label>
-          <input type="text" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
-                 class="form-control" value="新宿区西新宿1-1-1"/>
-        </div>
-        <div class="form-group">
           <label for="newPrefectureId">転居先住所（都道府県）</label>
           <font color="red">*</font><br>
           <select id="newPrefectureId" name="newPrefectureId" class="form-control">
             <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{newPrefectureId}">[[${prefecture.prefectureName}]]</option>
           </select>
-        </div>
-        <div class="form-group">
-          <label for="newAddress">転居先住所（市区町村以下）</label>
-          <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
-                 value="札幌市南区1"/>
         </div>
         <div class="form-group">
           <label for="month">引っ越し月　<font size="2" >(※オプション料を除く料金が3、４月は1.5倍、9月は1.2倍)</font>
