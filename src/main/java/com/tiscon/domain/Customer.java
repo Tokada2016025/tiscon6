@@ -20,7 +20,7 @@ public class Customer implements Serializable {
 
     private String newAddress;
 
-    //private int monthId;
+    private String monthId;
 
     public int getCustomerId() {
         return customerId;
@@ -85,14 +85,12 @@ public class Customer implements Serializable {
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
     }
-    /*
-    public int getmonthId() {
+
+    public String getMonthId() {
         return monthId;
     }
 
-    public void setmonthId(int monthId) {
+    public void setMonthId(String monthId) {
         this.monthId = monthId;
     }
-
-     */
 }

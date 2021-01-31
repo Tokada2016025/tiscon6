@@ -154,12 +154,11 @@ public class UserOrderForm {
         this.washingMachineInstallation = washingMachineInstallation;
     }
 
-    public String getmonthId(){
-        return  monthId;
+    public String getMonthId() {
+        return monthId;
     }
 
-    public void setmonthId(String monthId){
+    public void setMonthId(String monthId) {
         this.monthId = monthId;
-
     }
 }
