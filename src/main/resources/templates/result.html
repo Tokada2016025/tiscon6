@@ -62,9 +62,10 @@
           <input type="hidden" name="newAddress" id="newAddress" th:value="*{newAddress}"/>
         </tr>
         <tr>
+          <!--monthId:1月とか2月とかの情報を保持している(1月,2月とかの形で)-->
           <th>引っ越し時期</th>
-          <td><span th:text="*{monthId}"></span></td>
-          <input type="hidden" name="monthId" id="monthId" th:value="*{monthId}"/>
+          <td><span th:text="*{month}"></span></td>
+          <input type="hidden" name="month" id="month" th:value="*{month}"/>
         </tr>
         </tbody>
       </table>

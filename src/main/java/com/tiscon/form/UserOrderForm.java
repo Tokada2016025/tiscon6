@@ -55,8 +55,9 @@ public class UserOrderForm {
     @NotNull
     private boolean washingMachineInstallation;
 
+    //monthId:1月2月とかの情報をStringで保持する
     @NotNull
-    private String monthId;
+    private String month;
 
     public String getCustomerName() {
         return customerName;
@@ -154,11 +155,11 @@ public class UserOrderForm {
         this.washingMachineInstallation = washingMachineInstallation;
     }
 
-    public String getMonthId() {
-        return monthId;
+    public String getMonth() {
+        return month;
     }
 
-    public void setMonthId(String monthId) {
-        this.monthId = monthId;
+    public void setMonth(String month) {
+        this.month = month;
     }
 }

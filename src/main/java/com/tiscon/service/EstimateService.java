@@ -99,10 +99,10 @@ public class EstimateService {
         month_value[2] = 1.0;
         //judge その月がどの割合なのかを保存
         int[] judge = {2, 2, 0, 0, 2, 2, 2, 2, 1, 2, 2, 2};
-        //month 持ってきたMonthId(1月、2月)から数字だけを取り出す
-        String month =  dto.getMonthId().replaceAll("[^0-9]", "");
+        //monthId 持ってきたmonth(1月、2月)から数字だけを取り出す
+        String monthId =  dto.getMonth().replaceAll("[^0-9]", "");
         //その値をintにする
-        int month_values = Integer.parseInt(month);
+        int month_values = Integer.parseInt(monthId);
 
         //(距離[km]*100[円/km]+トラック輸送量[円])*季節係数+オプション料
         return (int)((priceForDistance + pricePerTruck)*month_value[judge[month_values-1]]) + priceForOptionalService;
