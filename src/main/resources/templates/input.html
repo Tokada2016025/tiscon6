@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
 <nav th:insert="header.html :: header"></nav>
 <div class="container">
   <form th:action="@{/submit}" th:object="${userOrderForm}" class="form-horizontal" method="post">
@@ -21,25 +22,27 @@
     <div class="col-sm-12">
       <fieldset>
         <legend>個人情報</legend>
+        <script src="confirm.js" th:src="@{/js/confirm.js}"></script>
         <div class="form-group">
           <label for="customerName">氏名</label>
-          <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+          <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎" onBlur="{if(CheckName()){}else{alert('名前が空です。')}}"/>
         </div>
         <div class="form-group">
           <label for="tel">連絡先TEL</label>
-          <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
+          <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678" onBlur="{CheckTel()}"/>
         </div>
         <div class="form-group">
           <label for="email">連絡先メールアドレス</label>
-          <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
+          <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com" onBlur="{if(CheckName()){}else{alert('メールアドレスが空です。')}}"/>
         </div>
 <!--        メールアドレス確認用-->
+<!--        <script src="confirm.js" th:src="@{/js/confirm.js}"></script>-->
         <div class="form-group">
           <label for="emailConfirm">連絡先メールアドレス(確認用)</label>
-          <input type="text" id="emailConfirm" name="emailConfirm"  class="form-control" value=""/>
+          <input type="text" id="emailConfirm" name="emailConfirm"  class="form-control" value="" onBlur="{if(CheckEmail()){}else{alert('メールアドレスが異なります。')}}"/>
         </div>
-        <script src="confirm.js" th:src="@{/js/confirm.js}"></script>
-        <input type="button" value="確認する" onclick="{if(CheckEmail()){alert('正しいメールアドレスです！')}else{alert('正しくない可能性があります・・。')}}">
+<!--        <input type="text"  onKeyUp="{if(CheckEmail()){alert('正しいメールアドレスです！')}else{alert('正しくない可能性があります・・。')}}">-->
+        <!--        <input type="button" value="確認する" onclick="{if(CheckEmail()){alert('正しいメールアドレスです！')}else{alert('正しくない可能性があります・・。')}}">-->
 <!--        -->
         <div class="form-group">
           <label for="oldPrefectureId">転居元住所（都道府県）</label>
@@ -68,20 +71,20 @@
         <legend>荷物情報</legend>
         <div class="form-group">
           <label for="box">段ボールの個数</label>
-          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
+          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10" onBlur="{CheckBox()}"/>
         </div>
         <div class="form-group">
           <label for="bed">ベッドの個数(*段ボール20個分で計算します)</label>
-          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3" onBlur="{CheckBed()}"/>
         </div>
         <div class="form-group">
           <label for="bicycle">自転車の個数(*段ボール15個分で計算します)</label>
-          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
+          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1" onBlur="{CheckBicycle()}"/>
         </div>
         <div class="form-group">
           <label for="washingMachine">洗濯機の個数(*段ボール10個分で計算します)</label>
           <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
-                 value="1"/>
+                 value="1" onBlur="{CheckWash()}"/>
         </div>
         <div class="form-group">
           <label for="washingMachineInstallation">洗濯機の設置工事申し込み</label>
@@ -103,24 +106,6 @@
 <!--<script src="../js/jquery-3.5.1.min.js" th:src="@{/js/jquery-3.5.1.min.js}"></script>-->
 <script src="../js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
 <script src="../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-
-<!--メールが一致しているかの確認-->
-<!--<script>-->
-<!--  function CheckEmail() {-->
-<!--    //IE対応の為変更-->
-<!--    var mail = email.value; //メールフォームの値を取得-->
-<!--    var mailConfirm = emailConfirm.value; //メール確認用フォームの値を取得-->
-<!--    var mail = document.getElementById("email_1").value; //メールフォームの値を取得-->
-<!--    var mailConfirm = document.getElementById("emailConfirm_1").value; //メール確認用フォームの値を取得-->
-<!--    // パスワードの一致確認-->
-<!--    if (mail != mailConfirm){-->
-<!--      alert("パスワードと確認用パスワードが一致しません"); // 一致していなかったら、エラーメッセージを表示する-->
-<!--      return false;-->
-<!--    }else{-->
-<!--      return true;-->
-<!--    }-->
-<!--  };-->
-<!--</script>-->
 
 </body>
 
