@@ -103,7 +103,7 @@ public class EstimateController {
      * @param model         遷移先に連携するデータ
      * @return 遷移先
      */
-    @PostMapping(value = "order", params = "backToConfirm")
+    @PostMapping(value = "order", params = "backToConfirm") //修正かそうでないか
     String backToConfirm(UserOrderForm userOrderForm, Model model) {
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
@@ -129,7 +129,7 @@ public class EstimateController {
 
         // 料金の計算を行う。
         UserOrderDto dto = new UserOrderDto();
-        BeanUtils.copyProperties(userOrderForm, dto);
+        BeanUtils.copyProperties(userOrderForm, dto);  //userOrderFormからdtoへコピー
         Integer price = estimateService.getPrice(dto);
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
