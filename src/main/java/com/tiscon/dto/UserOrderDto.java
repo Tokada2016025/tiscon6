@@ -8,6 +8,9 @@ public class UserOrderDto {
 
     private String email;
 
+//    確認用メールアドレス
+//    private String emailConfirm;
+
     private String oldPrefectureId;
 
     private String oldAddress;
@@ -25,6 +28,9 @@ public class UserOrderDto {
     private String washingMachine;
 
     private boolean washingMachineInstallation;
+
+    //追加
+    private String month;
 
     public String getCustomerName() {
         return customerName;
@@ -120,5 +126,13 @@ public class UserOrderDto {
 
     public void setWashingMachineInstallation(Boolean washingMachineInstallation) {
         this.washingMachineInstallation = washingMachineInstallation;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 }

@@ -24,6 +24,13 @@ public class UserOrderForm {
     @NotBlank
     private String email;
 
+
+/*確認用メールアドレスのフィールド
+    @Email
+    @NotBlank
+    private String emailConfirm;*/
+
+
     @NotBlank
     private String oldPrefectureId;
 
@@ -55,6 +62,10 @@ public class UserOrderForm {
     @NotNull
     private boolean washingMachineInstallation;
 
+    //monthId:1月2月とかの情報をStringで保持する
+    @NotNull
+    private String month;
+
     public String getCustomerName() {
         return customerName;
     }
@@ -78,6 +89,16 @@ public class UserOrderForm {
     public void setEmail(String email) {
         this.email = email;
     }
+
+/*確認用メールアドレスの取得
+    public String getEmailConfirm() {
+        return emailConfirm;
+    }
+
+    public void setEmaConfirm(String emailConfirm) {
+        this.emailConfirm = emailConfirm;
+    }*/
+
 
     public String getOldPrefectureId() {
         return oldPrefectureId;
@@ -149,5 +170,13 @@ public class UserOrderForm {
 
     public void setWashingMachineInstallation(boolean washingMachineInstallation) {
         this.washingMachineInstallation = washingMachineInstallation;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 }

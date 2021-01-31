@@ -10,6 +10,7 @@
   <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css">
 </head>
 
+
 <body>
 <nav th:insert="header.html :: header"></nav>
 <div class="container">
@@ -19,7 +20,9 @@
       <img src="img/order3.png" alt="順番3" width="50%" height="50%">
     </div>
     <div class="col-sm-12">
-      <h2>概算お見積り結果は<span th:text="${price}"></span>円です。</h2>
+      <h2 style="text-align:center">概算お見積り結果は<br>
+        <span th:text="${price}" class="marker_line"></span>円<br>
+        です。</h2> <!-- 見積結果をみやすくするためにマーカーをつける　-->
       <h4>個人情報</h4>
       <table class="table table-bordered">
         <col span="1" style="background-color: #A9B7C7;">
@@ -63,6 +66,12 @@
           <th>転居先住所（市区町村以下）</th>
           <td><span th:text="*{newAddress}"></span></td>
           <input type="hidden" name="newAddress" id="newAddress" th:value="*{newAddress}"/>
+        </tr>
+        <tr>
+          <!--monthId:1月とか2月とかの情報を保持している(1月,2月とかの形で)-->
+          <th>引っ越し時期</th>
+          <td><span th:text="*{month}"></span></td>
+          <input type="hidden" name="month" id="month" th:value="*{month}"/>
         </tr>
         </tbody>
       </table>
@@ -113,3 +122,10 @@
 </body>
 
 </html>
+
+<!--フッター(連絡先)-->
+<footer class="text-center bg-dark text-white">
+  <p class="py-3">連絡先</p>
+  電話： 〇〇〇〇-〇〇〇〇-〇〇〇〇 <br>
+  メール: 〇〇〇〇-〇〇〇〇@〇〇〇〇
+</footer>

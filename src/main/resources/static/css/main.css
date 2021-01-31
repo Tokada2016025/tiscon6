@@ -205,6 +205,9 @@ ul.label {
     border: 1px solid rgba(34,36,38,.15);
 }
 
+/*マーカークラスの生成*/
+.marker_line { background:linear-gradient(transparent 0%, #fec1fe 0%); }
+
 td {
     width: 400px;
 }
@@ -212,3 +215,4 @@ td {
 .orderNum{
     text-align:right;
 }
+
